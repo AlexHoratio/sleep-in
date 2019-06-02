@@ -60,3 +60,5 @@ func _on_collision_pause_timeout():
 func _on_player_body_entered(body):
 	able_to_move = false
 	get_node("collision_pause").start()
+	
+	
