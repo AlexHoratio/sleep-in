@@ -79,4 +79,7 @@ texture = ExtResource( 3 )
 shape = SubResource( 4 )
 
 [node name="collision_pause" type="Timer" parent="player"]
+wait_time = 0.15
+one_shot = true
+[connection signal="body_entered" from="player" to="player" method="_on_player_body_entered"]
 [connection signal="timeout" from="player/collision_pause" to="player" method="_on_collision_pause_timeout"]
