@@ -50,7 +50,10 @@ func _physics_process(delta):
 				linear_velocity.y += SPEED*delta*redirect_compensation
 				
 			linear_velocity.x *= direction_focus
-		
+	
+	if(Input.is_action_just_pressed("ui_accept")):
+		_on_player_body_entered(self)
+
 	linear_velocity.x = min(max(linear_velocity.x, -MAX_SPEED), MAX_SPEED)
 	linear_velocity.y = min(max(linear_velocity.y, -MAX_SPEED), MAX_SPEED)
 
@@ -61,4 +64,6 @@ func _on_player_body_entered(body):
 	able_to_move = false
 	get_node("collision_pause").start()
 	
-	
+	var collision_fx = load("res://Prefabs/collision_fx.tscn").instance()
+	get_node("..").add_child(collision_fx)
+	collision_fx.position = position

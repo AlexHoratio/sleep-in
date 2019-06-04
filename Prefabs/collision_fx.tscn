@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Prefabs/collision_fx.gd" type="Script" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+var radius = 5
+
+func _ready():
+	pass
+
+func _process(delta):
+	for point in get_children():
+		point.position = Vector2(radius, 0).rotated(global_position.angle_to_point(point.global_position) + PI)
+
+func set_radius(new_radius):
+	radius = new_radius"
+
+[node name="collision_fx" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 5.0
+default_color = Color( 0.388235, 0.0313726, 0.0901961, 1 )
+texture_mode = 33
+
+[node name="points" type="Node2D" parent="."]
+script = SubResource( 1 )
