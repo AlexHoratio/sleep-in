@@ -42,42 +42,58 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
-[node name="walls" type="StaticBody2D" parent="."]
+[node name="walls" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="walls"]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
 position = Vector2( 120, 128 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
 position = Vector2( 392, 128 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls/StaticBody2D2"]
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
 position = Vector2( 392, 384 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls/StaticBody2D3"]
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls/StaticBody2D4"]
 position = Vector2( 120, 384 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D5" type="StaticBody2D" parent="walls"]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls/StaticBody2D5"]
 position = Vector2( 256, 380 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D6" type="StaticBody2D" parent="walls"]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls/StaticBody2D6"]
 position = Vector2( 256, 132 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D7" type="StaticBody2D" parent="walls"]
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="walls/StaticBody2D7"]
 position = Vector2( 72, 256 )
 shape = SubResource( 3 )
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="walls"]
+[node name="StaticBody2D8" type="StaticBody2D" parent="walls"]
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="walls/StaticBody2D8"]
 position = Vector2( 440, 256 )
 shape = SubResource( 3 )
 

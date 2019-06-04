@@ -64,6 +64,9 @@ func _on_player_body_entered(body):
 	able_to_move = false
 	get_node("collision_pause").start()
 	
+	var collider_angle = global_position.angle_to_point(body.global_position)
+	
 	var collision_fx = load("res://Prefabs/collision_fx.tscn").instance()
 	get_node("..").add_child(collision_fx)
+	collision_fx.get_node("points").rotation = collider_angle
 	collision_fx.position = position
