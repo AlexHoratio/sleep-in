@@ -43,6 +43,7 @@ texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="walls" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="walls"]
 scale = Vector2( 4, 4 )

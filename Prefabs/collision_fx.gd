@@ -1,10 +1,12 @@
 extends Node2D
 
 var safe_rect = Rect2(Vector2(80, 136), Vector2(432-80, 376-136))
-var SPEED = 200
+var SPEED = 400
+var RADIUS = 1
 
 func _ready():
 	generate_points()
+	get_node("../noise/bar").set_value(get_node("../noise/bar").get_value() + 5)
 	
 func _physics_process(delta):
 	var list_of_points = []
@@ -13,18 +15,15 @@ func _physics_process(delta):
 	
 	for point in $points.get_children():
 		
-		if(not(safe_rect.has_point(point.global_position))):
-			point.queue_free()
-		else:
-			list_of_points.append(point.position)
+		list_of_points.append(point.position)
 			
 		counter += 1
 	
 	get_node("Line2D").points = PoolVector2Array(list_of_points)
 
 	$points.radius += delta*SPEED
-	modulate.a -= delta*2
-	SPEED -= delta*(SPEED/100)
+	modulate.a -= $points.radius*delta/(8 - RADIUS)
+	SPEED -= delta*(SPEED/20)
 	
 	
 func generate_points():
